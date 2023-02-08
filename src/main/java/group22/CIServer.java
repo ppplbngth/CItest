@@ -86,7 +86,7 @@ public class CIServer extends AbstractHandler
         Server server = new Server();
         SelectChannelConnector connector = new SelectChannelConnector();
         connector.setPort(8080);
-        connector.setMaxIdleTime(6000000); // 60 seconds
+        connector.setMaxIdleTime(12000000); // 60 seconds
         server.addConnector(connector);
         server.setHandler(new CIServer());
         server.start();
