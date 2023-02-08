@@ -11,6 +11,8 @@ import group22.utils.*;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import org.json.simple.JSONObject;
 
@@ -83,8 +85,14 @@ public class CIServer extends AbstractHandler
     public static void main(String[] args) throws Exception
     {
 
+        //Server server = new Server(8080);
+        SelectChannelConnector connector = new SelectChannelConnector();
+        connector.setMaxIdleTime(60000); // set idle timeout to 60 seconds
+
         Server server = new Server(8080);
+        server.addConnector(connector);
         server.setHandler(new CIServer());
+        //((QueuedThreadPool) server.getThreadPool()).setMaxIdleTime(60000);
         server.start();
         server.join();
 
