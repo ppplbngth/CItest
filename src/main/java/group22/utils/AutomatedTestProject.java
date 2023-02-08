@@ -37,7 +37,7 @@ public class AutomatedTestProject {
                 System.out.println("Test failed");
             }
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Error running tests: " + e.getMessage());
         }
         return false;
     }
