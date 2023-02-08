@@ -46,7 +46,7 @@ public class CIServer extends AbstractHandler
         // here you do all the continuous integration tasks
         // for example
         // 1st clone your repository
-
+        System.out.println("Method:" + method);
         if ("POST".equals(method)) {
             try {
                 jsonObject = Helpers.convertBody(request);
