@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 import group22.utils.CloneRepository;
+import group22.utils.CompileProject;
 import group22.utils.Helpers;
 
 
@@ -34,21 +35,27 @@ public class CIServer extends AbstractHandler
         baseRequest.setHandled(true);
 
         System.out.println(target);
+        String method = request.getMethod();
 
         JSONObject jsonObject = new JSONObject();
         // here you do all the continuous integration tasks
         // for example
         // 1st clone your repository
-        try{
-            jsonObject = Helpers.convertBody(request);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
+        if ("POST".equals(method))
+            try{
+                jsonObject = Helpers.convertBody(request);
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        
+        String localPath = "./repo";
         String cloneUrl = Helpers.getCloneUrl(jsonObject);
-        CloneRepository.cloneRepository(cloneUrl, "./repo");
+        // 1st clone your repository
+        CloneRepository.cloneRepository(cloneUrl, localPath);
         // 2nd compile the code
-
+        CompileProject.compileProject(localPath);
+        // 3d  run all the tests
+        
         response.getWriter().println("CI job done");
     }
  
