@@ -16,18 +16,24 @@ public class Helpers {
     public static JSONObject convertBody(Request request) throws Exception{
         //read the payload line by line
         StringBuilder st = new StringBuilder();
+        System.out.println("st done");
         BufferedReader buff = request.getReader();
+        System.out.println("buff done");
         String temp=buff.readLine();
+        System.out.println("temp done");
         String payload="";
         while(temp!=null){
                 st.append(temp);
                 temp=buff.readLine();
         }
+        System.out.println("while done");
         buff.close();
         
         payload = st.toString();
         JSONParser parser = new JSONParser();
+        System.out.println("parser done");
         JSONObject json = (JSONObject) parser.parse(payload);
+        System.out.println("json doone");
         System.out.println("payload: " + payload);
         return json;
         
