@@ -84,18 +84,27 @@ public class CIServer extends AbstractHandler
     // used to start the CI server in command line
     public static void main(String[] args) throws Exception
     {
+        Server server = new Server(8080);
+        server.setHandler(new CIServer());
+    
+    // get the first Connector
+        Connector connector = server.getConnectors()[0];
+    
+    // set the timeout for requests to 60 seconds
+        connector.setMaxIdleTime(60 * 1000);
 
+        server.start();
+        server.join();
         //Server server = new Server(8080);
         //SelectChannelConnector connector = new SelectChannelConnector();
         //connector.setMaxIdleTime(60000); // set idle timeout to 60 seconds
-
+        /* 
         Server server = new Server(8080);
-        //server.addConnector(connector);
         server.setHandler(new CIServer());
-        server.setAttribute("idleTimeout", 60000);
         //((QueuedThreadPool) server.getThreadPool()).setMaxIdleTime(60000);
         server.start();
         server.join();
+        */
 
     }
 }
