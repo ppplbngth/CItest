@@ -14,7 +14,7 @@ public class CompileProject {
      */
     public static Boolean compileProject(String localPath) {
         try {
-            String mvnCommand = "mvn clean install -DskipTests";
+            String mvnCommand = "mvn clean package -DskipTests";
             Process process = Runtime.getRuntime().exec(mvnCommand, null, new File(localPath));
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;/* 

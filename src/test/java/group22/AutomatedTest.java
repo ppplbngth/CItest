@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertTrue;
 
 
-public class AutomedTest {
+public class AutomatedTest {
     
     /**
      * Test for testing that the AutomatedTestProject works properly.c
