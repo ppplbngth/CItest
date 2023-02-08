@@ -58,7 +58,7 @@ public class CIServer extends AbstractHandler
                 branch = Helpers.getBranch(jsonObject);
                 CloneRepository.cloneRepository(cloneUrl, localPath, branch);
                 response.getWriter().println("Cloned repository");
-                //CompileProject.compileProject(localPath);
+                CompileProject.compileProject(localPath);
                 response.getWriter().println("Built repository");
                 //testRsl = AutomatedTestProject.testBranch(localPath);
                 if (!testRsl) {
