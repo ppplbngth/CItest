@@ -30,11 +30,11 @@ public class Helpers {
         buff.close();
         
         payload = st.toString();
+        System.out.println("payload: " + payload);
         JSONParser parser = new JSONParser();
         System.out.println("parser done");
         JSONObject json = (JSONObject) parser.parse(payload);
         System.out.println("json doone");
-        System.out.println("payload: " + payload);
         return json;
         
     }
