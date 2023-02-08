@@ -59,7 +59,7 @@ public class Helpers {
 
 
     public static String getBranch(JSONObject payload){
-        return payload.get("refs").toString();
+        return payload.get("ref").toString();
     }
     
 
