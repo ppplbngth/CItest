@@ -49,9 +49,13 @@ public class CIServer extends AbstractHandler
         System.out.println("Method:" + method);
         if ("POST".equals(method)) {
             try {
+                System.out.println("here");
                 jsonObject = Helpers.convertBody(request);
+                System.out.println("jsonObject:");
                 cloneUrl = Helpers.getCloneUrl(jsonObject);
+                System.out.println("cloneUrl:" + cloneUrl);
                 branch = Helpers.getBranch(jsonObject);
+                System.out.println("branch:" + branch);
                 CloneRepository.cloneRepository(cloneUrl, localPath, branch);
                 System.out.println("ehm");
                 CompileProject.compileProject(localPath);
