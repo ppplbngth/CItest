@@ -45,7 +45,7 @@ public class CIServer extends AbstractHandler
         if ("POST".equals(method))
             try{
                 System.out.println("Goes here");
-                jsonObject = Helpers.convertBody(baseRequest);
+                jsonObject = Helpers.convertBody(request);
             } catch (Exception e){
                 System.out.print("Exception?");
                 System.out.println(e.getMessage());
