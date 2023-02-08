@@ -36,7 +36,8 @@ public class CIServer extends AbstractHandler
 
         System.out.println(target);
         String method = request.getMethod();
-
+        System.out.println(method);
+        System.out.println(request);
         JSONObject jsonObject = new JSONObject();
         // here you do all the continuous integration tasks
         // for example
