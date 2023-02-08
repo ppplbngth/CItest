@@ -60,7 +60,7 @@ public class CIServer extends AbstractHandler
                 response.getWriter().println("Cloned repository");
                 CompileProject.compileProject(localPath);
                 response.getWriter().println("Built repository");
-                response.setStatus(200);
+                response.notify();
                 testRsl = AutomatedTestProject.testBranch(localPath);
                 if (!testRsl) {
                     response.setStatus(400);
@@ -87,7 +87,7 @@ public class CIServer extends AbstractHandler
         Server server = new Server();
         SelectChannelConnector connector = new SelectChannelConnector();
         connector.setPort(8080);
-        connector.setMaxIdleTime(60000); // 60 seconds
+        connector.setMaxIdleTime(6000000); // 60 seconds
         server.addConnector(connector);
         server.setHandler(new CIServer());
         server.start();
