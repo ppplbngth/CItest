@@ -28,7 +28,7 @@ public class Helpers {
         payload = st.toString();
         JSONParser parser = new JSONParser();
         JSONObject json = (JSONObject) parser.parse(payload);
-        System.out.println(json);
+        System.out.println(payload);
         return json;
         
     }
