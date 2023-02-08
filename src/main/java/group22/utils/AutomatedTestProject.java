@@ -28,14 +28,14 @@ public class AutomatedTestProject {
                 System.out.println(line);
             }*/
             //reader.close();
-
+            /* 
             System.out.println("Exitcode: " + exitCode);
             if (0 == exitCode) {
                 System.out.println("Test passed");
                 return true;
             } else {
                 System.out.println("Test failed");
-            }
+            }*/
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
