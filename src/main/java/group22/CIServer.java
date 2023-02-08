@@ -86,12 +86,13 @@ public class CIServer extends AbstractHandler
     {
 
         //Server server = new Server(8080);
-        SelectChannelConnector connector = new SelectChannelConnector();
-        connector.setMaxIdleTime(60000); // set idle timeout to 60 seconds
+        //SelectChannelConnector connector = new SelectChannelConnector();
+        //connector.setMaxIdleTime(60000); // set idle timeout to 60 seconds
 
         Server server = new Server(8080);
-        server.addConnector(connector);
+        //server.addConnector(connector);
         server.setHandler(new CIServer());
+        server.setAttribute("idleTimeout", 60000);
         //((QueuedThreadPool) server.getThreadPool()).setMaxIdleTime(60000);
         server.start();
         server.join();
