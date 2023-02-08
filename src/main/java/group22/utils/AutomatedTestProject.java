@@ -18,7 +18,7 @@ public class AutomatedTestProject {
      */
     public static Boolean testBranch(String localPath){
         try {
-            String mvnCommand = "mvn test -Dtest=AutomedTest";
+            String mvnCommand = "mvn test -Dtest=AutomatedTest";
             Process process = Runtime.getRuntime().exec(mvnCommand, null, new File(localPath));
             int exitCode = process.waitFor();
 
