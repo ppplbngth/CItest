@@ -15,7 +15,8 @@ public class CloneRepositoryTest {
     public void testPositiveTrueCloneRepository() throws Exception {
         String repositoryURL = "https://github.com/ppplbngth/CI-server.git";
         String localPath = "test-repository-clone";
-        CloneRepository.cloneRepository(repositoryURL, localPath);
+        String branch = "main";
+        CloneRepository.cloneRepository(repositoryURL, localPath, branch);
 
         File localRepository = new File(localPath);
         
