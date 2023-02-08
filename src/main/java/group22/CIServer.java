@@ -44,7 +44,7 @@ public class CIServer extends AbstractHandler
         // 1st clone your repository
         if ("POST".equals(method))
             try{
-                jsonObject = Helpers.convertBody(request);
+                jsonObject = Helpers.convertBody(baseRequest);
             } catch (Exception e){
                 System.out.println(e.getMessage());
             }

@@ -13,7 +13,7 @@ public class Helpers {
     // @param buff http Post request payload
     // "return JSON object containing the data from the webhook
     // @throws Exception
-    public static JSONObject convertBody(HttpServletRequest request) throws Exception{
+    public static JSONObject convertBody(Request request) throws Exception{
         //read the payload line by line
         StringBuilder st = new StringBuilder();
         BufferedReader buff = request.getReader();
