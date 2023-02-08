@@ -4,6 +4,10 @@ import org.apache.maven.shared.invoker.*;
 
 import java.io.File;
 import java.util.Collections;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class AutomatedTestProject {
     /**
@@ -13,8 +17,31 @@ public class AutomatedTestProject {
      * @return if test results are all correct
      */
     public static Boolean testBranch(String localPath){
+        try {
+            String mvnCommand = "mvn test";
+            Process process = Runtime.getRuntime().exec(mvnCommand, null, new File(localPath));
+            int exitCode = process.waitFor();
 
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
 
+            System.out.println("Exitcode: " + exitCode);
+            if (0 == exitCode) {
+                System.out.println("Test passed");
+                return true;
+            } else {
+                System.out.println("Test failed");
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+        /* 
         InvocationRequest request = new DefaultInvocationRequest();
         request.setPomFile(new File(localPath + "/pom.xml"));
         request.setGoals(Collections.singletonList("test"));
@@ -36,5 +63,5 @@ public class AutomatedTestProject {
         }
 
         return false;
-    }
+    }*/
 }
