@@ -17,10 +17,10 @@ public class CompileProject {
             String mvnCommand = "mvn clean install -DskipTests";
             Process process = Runtime.getRuntime().exec(mvnCommand, null, new File(localPath));
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
+            String line;/* 
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
-            }
+            }*/
             int result = process.waitFor();
             if (result == 0) {
                 System.out.println("Project compiled successfully");

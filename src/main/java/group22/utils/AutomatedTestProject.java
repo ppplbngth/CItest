@@ -23,10 +23,10 @@ public class AutomatedTestProject {
             int exitCode = process.waitFor();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
+            String line;/* 
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
-            }
+            }*/
             reader.close();
 
             System.out.println("Exitcode: " + exitCode);
