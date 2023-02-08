@@ -60,7 +60,7 @@ public class CIServer extends AbstractHandler
                 response.getWriter().println("Cloned repository");
                 CompileProject.compileProject(localPath);
                 response.getWriter().println("Built repository");
-                //testRsl = AutomatedTestProject.testBranch(localPath);
+                testRsl = AutomatedTestProject.testBranch(localPath);
                 if (!testRsl) {
                     response.setStatus(400);
                     response.getWriter().println("test failed");

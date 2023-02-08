@@ -22,12 +22,12 @@ public class AutomatedTestProject {
             Process process = Runtime.getRuntime().exec(mvnCommand, null, new File(localPath));
             int exitCode = process.waitFor();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            //BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;/* 
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }*/
-            reader.close();
+            //reader.close();
 
             System.out.println("Exitcode: " + exitCode);
             if (0 == exitCode) {
